@@ -12,9 +12,12 @@ namespace HotelZormat.testes
             var servicio = new Reservaservice();
 
             // Aquí llamaremos los métodos de cada reto para probarlos
-
-            Console.WriteLine("\n--- Tests finalizados ---");
-            Console.ReadKey();
+            Console.WriteLine("--- RETO 01: ValidarTipoHabitacion ---");
+            Console.WriteLine("Suite     → " + servicio.ValidarTipoHabitacion("Suite"));
+            Console.WriteLine("Sencilla  → " + servicio.ValidarTipoHabitacion("Sencilla"));
+            Console.WriteLine("Penthouse → " + servicio.ValidarTipoHabitacion("Penthouse"));
+            Console.WriteLine("(vacío)   → " + servicio.ValidarTipoHabitacion(""));
+            Console.WriteLine("(null)    → " + servicio.ValidarTipoHabitacion(null));
         }
     }
 }

@@ -10,19 +10,8 @@ namespace Hotel.Negocio_.Servicios
     {
         public bool ValidarTipoHabitacion(string tipo)
         {
-            if (string.IsNullOrWhiteSpace(tipo))
-            {
-                return false;
-            }
-
-            if (tipo == "Sencilla" || tipo == "Doble" || tipo == "Suite")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(tipo)) return false;
+            return tipo == "Sencilla" || tipo == "Doble" || tipo == "Suite";
         }
     }
 }
