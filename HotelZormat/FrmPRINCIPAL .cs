@@ -53,26 +53,24 @@ namespace HotelZormat
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e, string connStr)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            string v = configuracionDB.ObtenerConnectionString();
-            string connStr = v;
+            string connStr = configuracionDB.ObtenerConnectionString();
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-                    var cmd = new SqlCommand("SELECT COUNT(*) FROM HABITACIONES", connStr);
-                    int TOTAL = (int)cmd.ExecuteScalar();
+                    var cmd = new SqlCommand("SELECT COUNT(*) FROM HABITACIONES", conn);
+                    int total = (int)cmd.ExecuteScalar();
 
-                    MessageBox.Show("conectado. Hay" + TOTAL + "habitaciones en la BD.");
-
+                    MessageBox.Show("Conectado. Hay " + total + " habitaciones en la BD.");
                 }
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(" Error de conexion" + ex.Message, " BD inaccesible",
-
+                MessageBox.Show("Error de conexión: " + ex.Message, "BD inaccesible",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
