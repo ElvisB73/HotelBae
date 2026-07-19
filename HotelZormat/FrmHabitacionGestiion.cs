@@ -160,6 +160,8 @@ namespace HotelZormat
                     throw new Exception("No se encontró la habitación " + numero + ".");
                 }
 
+                habitacionActual.Estado = habitacionActual.Estado.ToUpper();
+
                 lblEstado.Text = "Estado: " + habitacionActual.Estado;
                 lblEstado.ForeColor = ObtenerColorEstado(habitacionActual.Estado);
                 cboTipo.Text = habitacionActual.Tipo;
@@ -167,7 +169,8 @@ namespace HotelZormat
             }
             catch (FormatException)
             {
-                MessageBox.Show("Debe escribir un número válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe escribir un número válido.", "Advertencia", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -203,7 +206,8 @@ namespace HotelZormat
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckIn"), "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckIn"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -213,7 +217,8 @@ namespace HotelZormat
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckOut"), "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckOut"), "Confirmación", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -223,7 +228,8 @@ namespace HotelZormat
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Reservar"), "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Reservar"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -233,7 +239,8 @@ namespace HotelZormat
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Limpiar"), "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Limpiar"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -245,7 +252,8 @@ namespace HotelZormat
         {
             if (habitacionActual == null)
             {
-                MessageBox.Show("Primero busque una habitación.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Primero busque una habitación.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -278,11 +286,13 @@ namespace HotelZormat
 
                 CargarHabitacionesPiso3();
 
-                MessageBox.Show("Cambio guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cambio guardado correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (HabitacionException ex)
             {
-                MessageBox.Show(ex.Message, "Habitación Ocupada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Habitación Ocupada",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
