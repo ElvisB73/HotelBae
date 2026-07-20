@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DaL\HabitacionDal.cs" />
     <Compile Include="Modelo\HabitacionOcupadaException.cs" />
     <Compile Include="Modelo\Habitacion.cs" />
